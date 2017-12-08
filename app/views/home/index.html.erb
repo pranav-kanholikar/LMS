@@ -1,0 +1,29 @@
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Date of join</th>
+                <th>Role</th>
+                <th>Header</th>
+                <th>Header</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @employees.each do |employee|%>
+                <tr>
+                    <td><%= employee.full_name %></td>
+                    <td><%= employee.date_of_join.strftime("%d-%m-%Y")%></td>
+                    <td><%= employee.role.name%></td>
+                    <td></td>
+                    <td>
+                       <%= link_to "edit", edit_employee_registration_path(employee) %>
+                    </td>
+                    <td>
+                        <%= link_to "delete", employee_registration_path(employee), method: :delete %>
+                    </td>
+                </tr>
+            <%end%>
+        </tbody>
+    </table>
+</div>

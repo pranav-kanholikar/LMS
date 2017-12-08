@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Lms</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="header clearfix">
+        <nav>
+          <ul class="nav nav-pills pull-right">
+            <li role="presentation" class="active"><%= link_to("Home", root_path())%></li>
+            <li role="presentation"><a href="#">About</a></li>
+            <li role="presentation"><a href="#">Contact</a></li>
+            <li role="presentation"><%= link_to("Register Employee", new_employee_registration_path()) if current_employee%></li>
+            <li role="presentation"> <%= link_to("Logout", destroy_employee_session_path(), method: :delete) if current_employee%></li>
+          </ul>
+        </nav>
+        <h4 class="text-muted">Leave Management system</h3>
+      </div>
+    <%= yield %>
+  </div>
+  </body>
+</html>
